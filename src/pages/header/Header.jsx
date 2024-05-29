@@ -9,13 +9,16 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import User from './User';
 import { Link } from 'react-router-dom';
+import Locate from '../savat/Locate';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedFlag, setSelectedFlag] = useState(uzflag); // Default to uzflag
   const [userScreenOpen, setUserScreenOpen] = useState(false);
+  const [locateOpen, setLocateOpen] = useState(false);
   const dropdownRef = useRef(null);
   const userScreenRef = useRef(null);
+  const locateRef = useRef(null);
 
   const handleToggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -30,12 +33,23 @@ const Header = () => {
     setUserScreenOpen(!userScreenOpen);
   };
 
+  const handleLocateClick = () => {
+    setLocateOpen(true);
+  };
+
+  const handleCloseLocate = () => {
+    setLocateOpen(false);
+  };
+
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setDropdownOpen(false);
     }
     if (userScreenOpen && userScreenRef.current && !userScreenRef.current.contains(event.target) && !event.target.classList.contains('Person')) {
       setUserScreenOpen(false);
+    }
+    if (locateOpen && locateRef.current && !locateRef.current.contains(event.target)) {
+      setLocateOpen(false);
     }
   };
 
@@ -44,7 +58,7 @@ const Header = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [userScreenOpen]);
+  }, [userScreenOpen, locateOpen]);
 
   return (
     <div className='w-[1440px] h-[80px] mx-auto bg-[white]'>
@@ -59,8 +73,8 @@ const Header = () => {
           </ul>
         </div>
         <div className='w-[50%] h-[100%] flex justify-end gap-3'>
-          <div className='w-[38%] h-[100%] flex items-center justify-start gap-3'>
-            <button className='w-[32px] h-[32px] rounded-[50%] flex items-center justify-center bg-[#e8e7e7]'>
+          <div className='locateMaxWay w-[38%] h-[100%] flex items-center justify-start gap-3'>
+            <button className='w-[32px] h-[32px] rounded-[50%] flex items-center justify-center bg-[#e8e7e7]' onClick={handleLocateClick}>
               <FmdGoodIcon className='text-violet-900' sx={{ width: "22px" }} />
             </button>
             <div className='leading-4'>
@@ -95,7 +109,7 @@ const Header = () => {
                 )}
               </li>
               <li className='w-[30px] h-[30px] flex items-center justify-evenly bg-[#e8e7e7] rounded-[15px]'>
-                <ShoppingCartIcon sx={{ width: "20px", height: "20px" }} className='text-violet-950' />
+                <Link to='./box'><ShoppingCartIcon sx={{ width: "20px", height: "20px" }} className='text-violet-950' /></Link>
               </li>
               <li><span>0000 so'm</span></li>
               <li className='Person w-[30px] h-[30px] flex items-center justify-evenly bg-[#e8e7e7] rounded-[15px]' onClick={handleToggleUserScreen}>
@@ -109,6 +123,13 @@ const Header = () => {
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
           <div ref={userScreenRef} className='bg-white p-8 rounded-lg shadow-lg w-[500px]'>
             <User onClose={handleToggleUserScreen} />
+          </div>
+        </div>
+      )}
+      {locateOpen && (
+        <div className='overlay' onClick={handleCloseLocate}>
+          <div ref={locateRef} className='animate-slide-up' onClick={(e) => e.stopPropagation()}>
+            <Locate onClose={handleCloseLocate} />
           </div>
         </div>
       )}
