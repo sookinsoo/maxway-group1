@@ -8,6 +8,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import User from './User';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -46,13 +47,13 @@ const Header = () => {
   }, [userScreenOpen]);
 
   return (
-    <div className='w-[1440px] h-[80px] mx-auto'>
+    <div className='w-[1440px] h-[80px] mx-auto bg-[white]'>
       <div className='w-[90%] h-[100%] mx-auto flex justify-between'>
         <div className='w-[38%] h-[100%]'>
           <ul className='w-[100%] h-[100%] flex items-center justify-between'>
             <img src={logo} alt="MaxWay Logo" className='w-[55px] h-[55px] cursor-pointer' />
             <li className='font-semibold cursor-pointer text-[17px]'>Menyu</li>
-            <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'>Filiallar</li>
+            <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'><Link to='/services'>Filiallarimiz</Link></li>
             <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'>Biz haqimizda</li>
             <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'>Bog'lanish</li>
           </ul>

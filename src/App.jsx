@@ -1,15 +1,20 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css'
+import Services from './components/Filiallari/Services';
 import Header from './pages/header/Header'
-import User from './pages/header/User'
 
 function App() {
 
   return (
     <>
+      {/* 
+      <Services/> */}
       <Header/>
-      {/* <User/> */}
+      <Routes>
+        <Route path='/services' element={<Services/>}/>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

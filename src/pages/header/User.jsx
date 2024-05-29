@@ -3,7 +3,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const User = ({ onClose }) => {
     return (
-        <div className='w-[450px] h-[350px] border border-black rounded-[10px] flex items-center relative'>
+        <div className='w-[450px] h-[350px] border border-black rounded-[10px] flex items-center relative '>
             <button onClick={onClose} className='absolute top-[5%] left-[90%]'><CloseIcon /></button>
             <div className='w-[85%] h-[75%] mx-auto'>
                 <h2 className='text-[40px] font-semibold text-center'>Tizimga kirish</h2>
