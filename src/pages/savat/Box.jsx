@@ -2,9 +2,11 @@ import React from 'react';
 import product from './img/max.webp';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import Footer from '../../components/Menyu/Footer';
 
 const Box = () => {
   return (
+    <>
     <div className='w-[100%] flex'>
       <div className='w-[65%] '>
         <h2 className='text-[36px] font-semibold pl-[20px] mb-[10px]'>Savatcha</h2>
@@ -55,6 +57,8 @@ const Box = () => {
         </div>
       </div>
     </div>
+      <Footer/>
+      </>
   );
 }
 

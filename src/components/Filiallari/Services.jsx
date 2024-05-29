@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../Menyu/Footer";
 
 const Services = () => {
   const [data, setData] = useState([]);
@@ -236,6 +237,7 @@ const Services = () => {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       )}
+      <Footer/>
     </div>
   );
 };

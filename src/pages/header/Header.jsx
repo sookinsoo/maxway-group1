@@ -66,10 +66,10 @@ const Header = () => {
         <div className='w-[38%] h-[100%]'>
           <ul className='w-[100%] h-[100%] flex items-center justify-between'>
             <img src={logo} alt="MaxWay Logo" className='w-[55px] h-[55px] cursor-pointer' />
-            <li className='font-semibold cursor-pointer text-[17px]'>Menyu</li>
+            <li className='font-semibold cursor-pointer text-[17px]'><Link to='/'>Menu</Link></li>
             <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'><Link to='/services'>Filiallarimiz</Link></li>
-            <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'>Biz haqimizda</li>
-            <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'>Bog'lanish</li>
+            <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'><Link to='/aboutus'>Biz haqimizda</Link></li>
+            <li className='text-[#4e4d4d] font-medium text-[17px] hover:shadow-2xl cursor-pointer hover:text-black hover:font-semibold'><Link to='/connect'>Bog'lanish</Link></li>
           </ul>
         </div>
         <div className='w-[50%] h-[100%] flex justify-end gap-3'>
